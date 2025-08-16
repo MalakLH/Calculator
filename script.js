@@ -23,3 +23,15 @@ function calculate() {
         display.textContent = 'Error';
     }
 }
+document.addEventListener('keydown', (e) => {
+    const key = e.key;
+    if ((/\d|[+\-*/%.]/).test(key)) {
+        append(key);
+    } else if (key === 'Enter') {
+        calculate();
+    } else if (key === 'Backspace') {
+        deleteLast();
+    } else if (key.toLowerCase() === 'c') {
+        clearDisplay();
+    }
+});
